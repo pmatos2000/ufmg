@@ -49,7 +49,7 @@ def processa(caminhos):
                     dados.append(hd)
             elif falha == True : # Atualiza a data do erro
                 data_fim = l["date"]
-                d.setDataFim(data_fim = data_fim)
+                d.set_data_fim(data_fim = data_fim)
     return dados
             
 
@@ -60,7 +60,7 @@ def pre(pasta):
 def salva_pre(pasta, dados):
     arq_saida = pasta + "pre.csv"
     arq = csv.writer(open(arq_saida, "wb"))
-    arq.writerow(["serial","modelo","capacidade","data__ini","data_fim","falha","dias_falha"])
+    arq.writerow(["serial","modelo","capacidade","data_ini","data_fim","falha","dias_falha"])
     for d in dados:
         serial = d.get_serial()
         modelo = d.get_modelo()
@@ -77,7 +77,7 @@ def salva_pre(pasta, dados):
         
 def main():
     dir_entrada = "./../base de dados/dados/"
-    dir_saida = './../base de dados/pre/'
+    dir_saida = "./../base de dados/pre/"
     dados = pre(pasta = dir_entrada)
     salva_pre(pasta = dir_saida, dados = dados)
     

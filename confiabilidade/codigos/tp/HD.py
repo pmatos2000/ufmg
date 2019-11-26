@@ -1,4 +1,4 @@
-
+# coding: utf-8
 
 import datetime 
 
@@ -11,6 +11,7 @@ class HD:
         self.capacidade = capacidade
         self.falha = False;
         self.dias_falha = 0;
+        self.marca = None;
         
         
     def __repr__(self):
@@ -44,7 +45,13 @@ class HD:
     def get_dias_falhas(self):
         return self.dias_falha
     
-    def setDataFim(self, data_fim):
+    def get_marca(self):
+        return self.marca
+    
+    def set_data_fim(self, data_fim):
         self.data_fim =  datetime.datetime.strptime(data_fim,'%Y-%m-%d')
         self.dias_falha = (self.data_fim - self.data_ini).days
         self.falha = True
+    
+    def set_marca(self, marca):
+        self.marca = marca
